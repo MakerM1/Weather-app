@@ -1,0 +1,439 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(15, 15, 15);
+  color: white;
+}
+body header {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body header .search-container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-right: 10px;
+}
+body header .search-container .mainLabel {
+  color: gray;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+  pointer-events: none;
+}
+body header .search-container input[type=text] {
+  max-width: 700px;
+  width: 100%;
+  padding: 15px 20px;
+  margin-right: 10px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  border: 2px solid rgb(31, 31, 31);
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+body header .search-container input[type=text]:focus {
+  border: 2px solid #2980B9;
+}
+body header .search-container input[type=text]:focus ~ .mainLabel, body header .search-container input[type=text]:valid ~ .mainLabel {
+  top: -8px;
+  background-color: rgb(15, 15, 15);
+  border-radius: 5px;
+  color: #2980B9;
+}
+body header .search-container input[type=text]:focus ~ #search-btn {
+  border: 2px #2980B9 solid;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+body header .search-container input[type=text]:focus ~ #search-btn:hover {
+  background-color: #2980B9;
+  color: white;
+  border-radius: 50%;
+}
+body header .search-container #search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(31, 31, 31);
+  color: #FFFFFF;
+  cursor: pointer;
+  border: 2px solid rgb(31, 31, 31);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  font-weight: 600;
+  border-radius: 50%;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+body header .search-container #search-btn:hover {
+  background-color: #2980B9;
+  color: white;
+  border-radius: 50%;
+}
+body header #current-location {
+  padding: 15px;
+  border-radius: 50%;
+  background-color: rgb(31, 31, 31);
+  border: 2px solid rgb(31, 31, 31);
+  color: white;
+  cursor: pointer;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+body header #current-location:hover {
+  background-color: #2980B9;
+}
+body header #current-location:active {
+  background-color: #1f6a9c;
+  font-size: 12px;
+  padding: 16px;
+}
+body .s1 {
+  padding: 20px;
+}
+body .s1 .s1-container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+body .s1 .s1-container .weather-card {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  height: 50px;
+  background-color: rgb(31, 31, 31);
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+@-webkit-keyframes open {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 500px;
+  }
+}
+@keyframes open {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 500px;
+  }
+}
+body .s1 .s1-container .weather-card:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: rgb(41, 41, 41);
+}
+body .s1 .s1-container .weather-card .weather-indicator .rainy {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  -webkit-animation-name: am-weather-rain;
+          animation-name: am-weather-rain;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+@-webkit-keyframes am-weather-rain {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+@keyframes am-weather-rain {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+body .s1 .s1-container .weather-card .weather-indicator .am-weather-rain-1 {
+  -webkit-animation-name: am-weather-rain;
+  animation-name: am-weather-rain;
+  -webkit-animation-duration: 8s;
+  animation-duration: 8s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+body .s1 .s1-container .weather-card .weather-indicator .am-weather-rain-2 {
+  -webkit-animation-name: am-weather-rain;
+  animation-name: am-weather-rain;
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+  -webkit-animation-duration: 8s;
+  animation-duration: 8s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+body .s1 .s1-container .weather-card .weather-indicator .rainy-normal {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+body .s1 .s1-container .weather-card:hover .rainy {
+  -webkit-animation-name: am-weather-rain;
+          animation-name: am-weather-rain;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card:hover .am-weather-rain-2 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card:hover .am-weather-rain-1 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card .info {
+  text-align: center;
+}
+body .s1 .s1-container .weather-card .info h1 {
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+body .s1 .s1-container .weather-card .info h5 {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgb(170, 170, 170);
+  margin-bottom: 20px;
+}
+body .s1 .s1-container .weather-card .info p {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgb(170, 170, 170);
+}
+body .s1 .s1-container .weather-card:hover .am-weather-cloud-1 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card:hover .am-weather-cloud-2 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card:hover .am-weather-sun {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card:hover .am-weather-sun-shiny line {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+body .s1 .s1-container .weather-card:hover .am-weather-cloud-2 {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+.cardElement1 {
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.cardElement2 {
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.cardElement1.active {
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+.cardElement2.active {
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 1;
+}/*# sourceMappingURL=global.css.map */
