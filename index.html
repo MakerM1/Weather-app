@@ -11,19 +11,28 @@
     <link rel="stylesheet" href="css/global.css" />
   </head>
   <body>
+    <div class="menu">
+      <button class="menu-button">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </button>
+    </div>
     <header>
-      <div class="search-container">
-        <input type="text" id="search-bar" required />
-        <label for="search-bar" class="mainLabel" id="mainLabel"
-          >Enter a location</label
-        >
-        <button id="search-btn">
-          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+      <div class="middle-part">
+        <div class="search-container">
+          <input type="text" id="search-bar" required />
+          <label for="search-bar" class="mainLabel" id="mainLabel"
+            >Enter a location</label
+          >
+          <button id="search-btn">
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          </button>
+        </div>
+        <button id="current-location">
+          <i class="fa-solid fa-location-dot fa-2xl"></i>
         </button>
       </div>
-      <button id="current-location">
-        <i class="fa-solid fa-location-dot fa-2xl"></i>
-      </button>
     </header>
     <section class="s1">
       <div class="s1-container">
@@ -37,6 +46,22 @@
         </div>
       </div>
     </section>
+    <div class="overlay"></div>
+    <div class="open-menu not-active" id="open-menu">
+      <div class="menuPart1">
+        <p class="active">Home Page</p>
+      </div>
+      <div class="menuPart2">
+        <p>5 Day Forecast</p>
+      </div>
+      <div class="menuPart3">
+        <p><a href="pages/liveMap.html">Live Map</a></p>
+      </div>
+      <div class="menuPart4">
+        <p class="more-info">More Info</p>
+      </div>
+    </div>
     <script src="scripts/index.js"></script>
+    <script src="scripts/menu.js"></script>
   </body>
 </html>

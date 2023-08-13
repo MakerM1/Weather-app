@@ -1,0 +1,154 @@
+body {
+    background-color: rgb(15, 15, 15);
+
+    header {
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        margin-left: 65px;
+        z-index: 1;
+
+        .middle-part {
+            max-width: 750px;
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+
+            .map-search-container {
+                @include container(700px);
+                position: relative;
+                margin-right: 10px;
+
+                .mainLabel {
+                    color: gray;
+                    position: absolute;
+                    top: 17px;
+                    left: 20px;
+                    transition: all 0.15s;
+                    pointer-events: none;
+                }
+
+                input[type="text"] {
+                    max-width: 700px;
+                    width: 100%;
+                    padding: 15px 20px;
+                    margin-right: 10px;
+                    border-radius: 50px;
+                    border: none;
+                    outline: none;
+                    background-color: rgb(31, 31, 31);
+                    color: white;
+                    border: 2px solid rgb(31, 31, 31);
+                    transition: all 0.15s;
+
+                    &:focus {
+                        border: 2px solid #2980B9;
+                    }
+
+                    &:focus~.mainLabel,
+                    &:valid~.mainLabel {
+                        top: -8px;
+                        background-color: rgb(15, 15, 15);
+                        border-radius: 5px;
+                        color: #2980B9;
+                    }
+
+                    &:focus~#map-search-btn {
+                        border: 2px #2980B9 solid;
+                        border-left: none;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+
+                        &:hover {
+                            background-color: #2980B9;
+                            color: white;
+                            border-radius: 50%;
+                        }
+                    }
+
+
+                }
+
+                #map-search-btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 15px 15px;
+                    border-radius: 5px;
+                    border: none;
+                    background-color: rgb(31, 31, 31);
+                    color: #FFFFFF;
+                    cursor: pointer;
+                    border: 2px solid rgb(31, 31, 31);
+                    transition: all 0.1s;
+                    font-weight: 600;
+                    border-radius: 50%;
+                    border-left: none;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+
+                    &:hover {
+                        background-color: #2980B9;
+                        color: white;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            #current-location {
+                padding: 15px;
+                border-radius: 50%;
+                background-color: rgb(31, 31, 31);
+                border: 2px solid rgb(31, 31, 31);
+                color: white;
+                cursor: pointer;
+                transition: all 0.15s;
+
+                &:hover {
+                    background-color: #2980B9;
+                }
+
+                &:active {
+                    background-color: #1f6a9c;
+                    font-size: 12px;
+                    padding: 16px;
+                }
+            }
+
+        }
+    }
+
+    .liveMap-s1 {
+        margin-top: 70px;
+        padding: 20px;
+
+        .map-container {
+            padding: 20px 10px;
+            overflow: hidden;
+            max-width: 1200px;
+            width: 100%;
+            height: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(31, 31, 31);
+            border-radius: 50px;
+
+            .map {
+                display: block;
+                margin: 0 auto;
+                padding: 20px 10px;
+                border-radius: 50px;
+
+            }
+
+        }
+    }
+}

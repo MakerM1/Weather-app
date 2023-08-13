@@ -1,0 +1,581 @@
+body {
+    background-color: rgb(15, 15, 15);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+    header {
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        margin-left: 65px;
+        z-index: 1;
+
+        .middle-part {
+            max-width: 750px;
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+
+            .search-container {
+                @include container(700px);
+                position: relative;
+                margin-right: 10px;
+
+                .mainLabel {
+                    color: gray;
+                    position: absolute;
+                    top: 17px;
+                    left: 20px;
+                    transition: all 0.15s;
+                    pointer-events: none;
+                }
+
+                input[type="text"] {
+                    max-width: 700px;
+                    width: 100%;
+                    padding: 15px 20px;
+                    margin-right: 10px;
+                    border-radius: 50px;
+                    border: none;
+                    outline: none;
+                    background-color: rgb(31, 31, 31);
+                    color: white;
+                    border: 2px solid rgb(31, 31, 31);
+                    transition: all 0.15s;
+
+                    &:focus {
+                        border: 2px solid #2980B9;
+                    }
+
+                    &:focus~.mainLabel,
+                    &:valid~.mainLabel {
+                        top: -8px;
+                        background-color: rgb(15, 15, 15);
+                        border-radius: 5px;
+                        color: #2980B9;
+                    }
+
+                    &:focus~#search-btn {
+                        border: 2px #2980B9 solid;
+                        border-left: none;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+
+                        &:hover {
+                            background-color: #2980B9;
+                            color: white;
+                            border-radius: 50%;
+                        }
+                    }
+
+
+                }
+
+                #search-btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 15px 15px;
+                    border-radius: 5px;
+                    border: none;
+                    background-color: rgb(31, 31, 31);
+                    color: #FFFFFF;
+                    cursor: pointer;
+                    border: 2px solid rgb(31, 31, 31);
+                    transition: all 0.1s;
+                    font-weight: 600;
+                    border-radius: 50%;
+                    border-left: none;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+
+                    &:hover {
+                        background-color: #2980B9;
+                        color: white;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            #current-location {
+                padding: 15px;
+                border-radius: 50%;
+                background-color: rgb(31, 31, 31);
+                border: 2px solid rgb(31, 31, 31);
+                color: white;
+                cursor: pointer;
+                transition: all 0.15s;
+
+                &:hover {
+                    background-color: #2980B9;
+                }
+
+                &:active {
+                    background-color: #1f6a9c;
+                    font-size: 12px;
+                    padding: 16px;
+                }
+            }
+
+        }
+    }
+
+
+    .s1 {
+        padding: 20px;
+
+        .s1-container {
+            @include container(1000px);
+            margin-top: 150px;
+
+            .weather-card {
+                @include container(400px);
+                height: 50px;
+                background-color: rgb(31, 31, 31);
+                border-radius: 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                transition: all 0.2s;
+                cursor: pointer;
+
+                @keyframes open {
+                    from {
+                        height: 50px;
+                    }
+
+                    to {
+                        height: 500px;
+                    }
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                    background-color: rgb(41, 41, 41);
+                }
+
+                .weather-indicator {
+                    .rainy {
+                        width: 200px;
+                        margin: 0 auto;
+                        display: block;
+                        animation-name: am-weather-rain;
+                        animation-play-state: paused;
+                    }
+
+                    @keyframes am-weather-rain {
+                        0% {
+                            stroke-dashoffset: 0;
+                        }
+
+                        100% {
+                            stroke-dashoffset: -100;
+                        }
+                    }
+
+                    .am-weather-rain-1 {
+                        -webkit-animation-name: am-weather-rain;
+                        -moz-animation-name: am-weather-rain;
+                        -ms-animation-name: am-weather-rain;
+                        animation-name: am-weather-rain;
+                        -webkit-animation-duration: 8s;
+                        -moz-animation-duration: 8s;
+                        -ms-animation-duration: 8s;
+                        animation-duration: 8s;
+                        -webkit-animation-timing-function: linear;
+                        -moz-animation-timing-function: linear;
+                        -ms-animation-timing-function: linear;
+                        animation-timing-function: linear;
+                        -webkit-animation-iteration-count: infinite;
+                        -moz-animation-iteration-count: infinite;
+                        -ms-animation-iteration-count: infinite;
+                        animation-iteration-count: infinite;
+                        animation-play-state: paused;
+                    }
+
+
+                    .am-weather-rain-2 {
+                        -webkit-animation-name: am-weather-rain;
+                        -moz-animation-name: am-weather-rain;
+                        -ms-animation-name: am-weather-rain;
+                        animation-name: am-weather-rain;
+                        -webkit-animation-delay: 0.25s;
+                        -moz-animation-delay: 0.25s;
+                        -ms-animation-delay: 0.25s;
+                        animation-delay: 0.25s;
+                        -webkit-animation-duration: 8s;
+                        -moz-animation-duration: 8s;
+                        -ms-animation-duration: 8s;
+                        animation-duration: 8s;
+                        -webkit-animation-timing-function: linear;
+                        -moz-animation-timing-function: linear;
+                        -ms-animation-timing-function: linear;
+                        animation-timing-function: linear;
+                        -webkit-animation-iteration-count: infinite;
+                        -moz-animation-iteration-count: infinite;
+                        -ms-animation-iteration-count: infinite;
+                        animation-iteration-count: infinite;
+                        animation-play-state: paused;
+                    }
+
+                    .rainy-normal {
+                        width: 200px;
+                        margin: 0 auto;
+                        display: block;
+                    }
+                }
+
+                &:hover .rainy {
+                    animation-name: am-weather-rain;
+                    animation-play-state: running;
+                }
+
+                &:hover .am-weather-rain-2 {
+                    animation-play-state: running;
+                }
+
+                &:hover .am-weather-rain-1 {
+                    animation-play-state: running;
+                }
+
+                .info {
+                    text-align: center;
+
+                    h1 {
+                        font-size: 50px;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: 600;
+                        margin-bottom: 20px;
+                    }
+
+                    h5 {
+                        font-size: 30px;
+                        font-weight: 600;
+                        color: rgb(170, 170, 170);
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 30px;
+                        font-weight: 600;
+                        color: rgb(170, 170, 170);
+                    }
+                }
+
+                &:hover .am-weather-cloud-1 {
+                    animation-play-state: running;
+                }
+
+                &:hover .am-weather-cloud-2 {
+                    animation-play-state: running;
+                }
+
+                &:hover .am-weather-sun {
+                    animation-play-state: running;
+                }
+
+                &:hover .am-weather-sun-shiny line {
+                    animation-play-state: running;
+                }
+
+                &:hover .am-weather-cloud-2 {
+                    animation-play-state: running;
+                }
+
+            }
+        }
+    }
+}
+
+.cardElement1 {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.cardElement2 {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.cardElement1.active {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.cardElement2.active {
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.menu-button.active .menu-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button.active .menu-line:nth-child(1) {
+    margin-top: 3px;
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-button.active .menu-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.274);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu {
+    padding: 20px;
+    padding-top: 18px;
+    position: relative;
+    z-index: 1000000;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .menu-button {
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(31, 31, 31);
+        transition: all 0.15s;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            background-color: rgb(41, 41, 41);
+        }
+
+        .menu-line {
+            width: 23px;
+            height: 3px;
+            background-color: #1f6a9c;
+            margin-bottom: 4px;
+            transition: all 0.3s;
+        }
+    }
+}
+
+.open-menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 500px;
+    width: 100%;
+    z-index: 100000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    background-color: rgb(31, 31, 31);
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #1b5074;
+        border-radius: 80px;
+
+        &:hover {
+            background-color: #133449;
+        }
+    }
+
+    @media (max-width: 568px) {
+        max-width: 300px;
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &.not-active {
+        animation: slideOut 0.7s linear 1;
+
+        @keyframes slideOut {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: -550px;
+            }
+        }
+    }
+
+    div {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        left: -550px;
+        animation: slideIn1 1s linear 1;
+        animation-delay: 0.3s;
+        background-color: rgb(31, 31, 31);
+        z-index: 100001;
+
+
+        p {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-bottom: 2px solid gray;
+            padding: 20px;
+            display: block;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            max-width: 154px;
+            width: 100%;
+            transition: all 0.2s;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+
+            a {
+                color: white;
+                text-decoration: none;
+                transition: all 0.2s;
+            }
+
+            &:hover {
+                color: #1f6a9c;
+                max-width: 200px;
+                border-bottom: 2px solid #1f6a9c;
+            }
+
+
+            &:hover a {
+                color: #1f6a9c;
+            }
+        }
+
+        .active {
+            color: #1f6a9c;
+            max-width: 200px;
+            border-bottom: 2px solid #1f6a9c;
+
+            &:hover {
+                color: #175076;
+                border-bottom: 2px solid #175076;
+            }
+        }
+
+
+        .more-info {
+            top: 50%;
+        }
+
+        &.active {
+            left: 0px;
+
+            @keyframes slideIn1 {
+                from {
+                    left: -550px;
+                }
+
+                to {
+                    left: 0;
+                }
+            }
+
+        }
+
+        &:nth-child(1) {
+            border-top-right-radius: 40px;
+        }
+
+
+        &:nth-child(2) {
+            top: 200px;
+            animation: slideIn1 1.2s ease-in-out 1;
+            animation-delay: 0.4s;
+
+            &.active {
+                @keyframes slideIn1 {
+                    from {
+                        left: -550px;
+                    }
+
+                    to {
+                        left: 0;
+                    }
+                }
+
+            }
+        }
+
+        &:nth-child(3) {
+            top: 400px;
+            animation: slideIn1 1.4s ease-in-out 1;
+            animation-delay: 0.4s;
+
+            &.active {
+                @keyframes slideIn1 {
+                    from {
+                        left: -550px;
+                    }
+
+                    to {
+                        left: 0;
+                    }
+                }
+
+            }
+        }
+
+        &:nth-child(4) {
+            top: 600px;
+            height: 200px;
+            animation: slideIn1 1.6s ease-in-out 1;
+            animation-delay: 0.4s;
+            border-bottom-right-radius: 40px;
+
+            &.active {
+                @keyframes slideIn1 {
+                    from {
+                        left: -550px;
+                    }
+
+                    to {
+                        left: 0;
+                    }
+                }
+
+            }
+        }
+    }
+}

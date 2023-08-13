@@ -138,14 +138,23 @@ a {
           box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #2980B9;
+  border-radius: 80px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #22618b;
+}
+
 body {
   background-color: rgb(15, 15, 15);
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body header {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 20px;
   position: fixed;
   right: 0;
   left: 0;
@@ -156,15 +165,29 @@ body header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 65px;
+  z-index: 1;
 }
-body header .search-container {
+body header .middle-part {
+  max-width: 750px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body header .middle-part .search-container {
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
   position: relative;
   margin-right: 10px;
 }
-body header .search-container .mainLabel {
+body header .middle-part .search-container .mainLabel {
   color: gray;
   position: absolute;
   top: 17px;
@@ -173,7 +196,7 @@ body header .search-container .mainLabel {
   transition: all 0.15s;
   pointer-events: none;
 }
-body header .search-container input[type=text] {
+body header .middle-part .search-container input[type=text] {
   max-width: 700px;
   width: 100%;
   padding: 15px 20px;
@@ -187,27 +210,27 @@ body header .search-container input[type=text] {
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
-body header .search-container input[type=text]:focus {
+body header .middle-part .search-container input[type=text]:focus {
   border: 2px solid #2980B9;
 }
-body header .search-container input[type=text]:focus ~ .mainLabel, body header .search-container input[type=text]:valid ~ .mainLabel {
+body header .middle-part .search-container input[type=text]:focus ~ .mainLabel, body header .middle-part .search-container input[type=text]:valid ~ .mainLabel {
   top: -8px;
   background-color: rgb(15, 15, 15);
   border-radius: 5px;
   color: #2980B9;
 }
-body header .search-container input[type=text]:focus ~ #search-btn {
+body header .middle-part .search-container input[type=text]:focus ~ #search-btn {
   border: 2px #2980B9 solid;
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-body header .search-container input[type=text]:focus ~ #search-btn:hover {
+body header .middle-part .search-container input[type=text]:focus ~ #search-btn:hover {
   background-color: #2980B9;
   color: white;
   border-radius: 50%;
 }
-body header .search-container #search-btn {
+body header .middle-part .search-container #search-btn {
   position: absolute;
   top: 0;
   right: 0;
@@ -226,12 +249,12 @@ body header .search-container #search-btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-body header .search-container #search-btn:hover {
+body header .middle-part .search-container #search-btn:hover {
   background-color: #2980B9;
   color: white;
   border-radius: 50%;
 }
-body header #current-location {
+body header .middle-part #current-location {
   padding: 15px;
   border-radius: 50%;
   background-color: rgb(31, 31, 31);
@@ -241,10 +264,10 @@ body header #current-location {
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
-body header #current-location:hover {
+body header .middle-part #current-location:hover {
   background-color: #2980B9;
 }
-body header #current-location:active {
+body header .middle-part #current-location:active {
   background-color: #1f6a9c;
   font-size: 12px;
   padding: 16px;
@@ -256,7 +279,7 @@ body .s1 .s1-container {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 150px;
 }
 body .s1 .s1-container .weather-card {
   max-width: 400px;
@@ -436,4 +459,423 @@ body .s1 .s1-container .weather-card:hover .am-weather-cloud-2 {
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   opacity: 1;
+}
+
+.menu-button.active .menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.active .menu-line:nth-child(1) {
+  margin-top: 3px;
+  -webkit-transform: translateY(7px) rotate(45deg);
+      -ms-transform: translateY(7px) rotate(45deg);
+          transform: translateY(7px) rotate(45deg);
+}
+
+.menu-button.active .menu-line:nth-child(3) {
+  -webkit-transform: translateY(-7px) rotate(-45deg);
+      -ms-transform: translateY(-7px) rotate(-45deg);
+          transform: translateY(-7px) rotate(-45deg);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.274);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  padding: 20px;
+  padding-top: 18px;
+  position: relative;
+  z-index: 1000000;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.menu .menu-button {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgb(31, 31, 31);
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+  cursor: pointer;
+  position: relative;
+}
+.menu .menu-button:hover {
+  background-color: rgb(41, 41, 41);
+}
+.menu .menu-button .menu-line {
+  width: 23px;
+  height: 3px;
+  background-color: #1f6a9c;
+  margin-bottom: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.open-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  max-width: 500px;
+  width: 100%;
+  z-index: 100000;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: rgb(31, 31, 31);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  overflow-y: scroll;
+}
+.open-menu::-webkit-scrollbar {
+  width: 5px;
+}
+.open-menu::-webkit-scrollbar-thumb {
+  background-color: #1b5074;
+  border-radius: 80px;
+}
+.open-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #133449;
+}
+@media (max-width: 568px) {
+  .open-menu {
+    max-width: 300px;
+  }
+}
+.open-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+.open-menu.not-active {
+  -webkit-animation: slideOut 0.7s linear 1;
+          animation: slideOut 0.7s linear 1;
+}
+@-webkit-keyframes slideOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -550px;
+  }
+}
+@keyframes slideOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -550px;
+  }
+}
+.open-menu div {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  left: -550px;
+  -webkit-animation: slideIn1 1s linear 1;
+          animation: slideIn1 1s linear 1;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  background-color: rgb(31, 31, 31);
+  z-index: 100001;
+}
+.open-menu div p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-bottom: 2px solid gray;
+  padding: 20px;
+  display: block;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  max-width: 154px;
+  width: 100%;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.open-menu div p a {
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.open-menu div p:hover {
+  color: #1f6a9c;
+  max-width: 200px;
+  border-bottom: 2px solid #1f6a9c;
+}
+.open-menu div p:hover a {
+  color: #1f6a9c;
+}
+.open-menu div .active {
+  color: #1f6a9c;
+  max-width: 200px;
+  border-bottom: 2px solid #1f6a9c;
+}
+.open-menu div .active:hover {
+  color: #175076;
+  border-bottom: 2px solid #175076;
+}
+.open-menu div .more-info {
+  top: 50%;
+}
+.open-menu div.active {
+  left: 0px;
+}
+@-webkit-keyframes slideIn1 {
+  from {
+    left: -550px;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes slideIn1 {
+  from {
+    left: -550px;
+  }
+  to {
+    left: 0;
+  }
+}
+.open-menu div:nth-child(1) {
+  border-top-right-radius: 40px;
+}
+.open-menu div:nth-child(2) {
+  top: 200px;
+  -webkit-animation: slideIn1 1.2s ease-in-out 1;
+          animation: slideIn1 1.2s ease-in-out 1;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+@keyframes slideIn1 {
+  from {
+    left: -550px;
+  }
+  to {
+    left: 0;
+  }
+}
+.open-menu div:nth-child(3) {
+  top: 400px;
+  -webkit-animation: slideIn1 1.4s ease-in-out 1;
+          animation: slideIn1 1.4s ease-in-out 1;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+@keyframes slideIn1 {
+  from {
+    left: -550px;
+  }
+  to {
+    left: 0;
+  }
+}
+.open-menu div:nth-child(4) {
+  top: 600px;
+  height: 200px;
+  -webkit-animation: slideIn1 1.6s ease-in-out 1;
+          animation: slideIn1 1.6s ease-in-out 1;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+  border-bottom-right-radius: 40px;
+}
+@keyframes slideIn1 {
+  from {
+    left: -550px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+body {
+  background-color: rgb(15, 15, 15);
+}
+body header {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 65px;
+  z-index: 1;
+}
+body header .middle-part {
+  max-width: 750px;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body header .middle-part .map-search-container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  margin-right: 10px;
+}
+body header .middle-part .map-search-container .mainLabel {
+  color: gray;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+  pointer-events: none;
+}
+body header .middle-part .map-search-container input[type=text] {
+  max-width: 700px;
+  width: 100%;
+  padding: 15px 20px;
+  margin-right: 10px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  border: 2px solid rgb(31, 31, 31);
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+body header .middle-part .map-search-container input[type=text]:focus {
+  border: 2px solid #2980B9;
+}
+body header .middle-part .map-search-container input[type=text]:focus ~ .mainLabel, body header .middle-part .map-search-container input[type=text]:valid ~ .mainLabel {
+  top: -8px;
+  background-color: rgb(15, 15, 15);
+  border-radius: 5px;
+  color: #2980B9;
+}
+body header .middle-part .map-search-container input[type=text]:focus ~ #map-search-btn {
+  border: 2px #2980B9 solid;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+body header .middle-part .map-search-container input[type=text]:focus ~ #map-search-btn:hover {
+  background-color: #2980B9;
+  color: white;
+  border-radius: 50%;
+}
+body header .middle-part .map-search-container #map-search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(31, 31, 31);
+  color: #FFFFFF;
+  cursor: pointer;
+  border: 2px solid rgb(31, 31, 31);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  font-weight: 600;
+  border-radius: 50%;
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+body header .middle-part .map-search-container #map-search-btn:hover {
+  background-color: #2980B9;
+  color: white;
+  border-radius: 50%;
+}
+body header .middle-part #current-location {
+  padding: 15px;
+  border-radius: 50%;
+  background-color: rgb(31, 31, 31);
+  border: 2px solid rgb(31, 31, 31);
+  color: white;
+  cursor: pointer;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+body header .middle-part #current-location:hover {
+  background-color: #2980B9;
+}
+body header .middle-part #current-location:active {
+  background-color: #1f6a9c;
+  font-size: 12px;
+  padding: 16px;
+}
+body .liveMap-s1 {
+  margin-top: 70px;
+  padding: 20px;
+}
+body .liveMap-s1 .map-container {
+  padding: 20px 10px;
+  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgb(31, 31, 31);
+  border-radius: 50px;
+}
+body .liveMap-s1 .map-container .map {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 10px;
+  border-radius: 50px;
 }/*# sourceMappingURL=global.css.map */

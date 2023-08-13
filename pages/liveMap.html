@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Map</title>
+    <script
+      src="https://kit.fontawesome.com/2d3e948390.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/global.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <button class="menu-button">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </button>
+    </div>
+    <header>
+      <div class="middle-part">
+        <div class="map-search-container">
+          <input type="text" id="map-search-bar" required />
+          <label for="map-search-bar" class="mainLabel" id="mainLabel"
+            >Enter a location</label
+          >
+          <button id="map-search-btn">
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <section class="liveMap-s1">
+      <div class="map-container">
+        <iframe
+          src="https://www.meteoblue.com/en/weather/maps/widget/?windAnimation=0&windAnimation=1&gust=0&gust=1&satellite=0&satellite=1&cloudsAndPrecipitation=0&cloudsAndPrecipitation=1&temperature=0&temperature=1&sunshine=0&sunshine=1&extremeForecastIndex=0&extremeForecastIndex=1&geoloc=detect&tempunit=C&windunit=km%252Fh&lengthunit=metric&zoom=5&autowidth=auto"
+          frameborder="0"
+          scrolling="NO"
+          allowtransparency="true"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+          style="width: 1200px; height: 600px"
+          class="map"
+        ></iframe>
+      </div>
+    </section>
+    <div class="overlay"></div>
+    <div class="open-menu not-active" id="open-menu">
+      <div class="menuPart1">
+        <p><a href="../index.html">Home Page</a></p>
+      </div>
+      <div class="menuPart2">
+        <p>5 Day Forecast</p>
+      </div>
+      <div class="menuPart3">
+        <a href="#">
+          <p class="active">Live Map</p>
+        </a>
+      </div>
+      <div class="menuPart4">
+        <p class="more-info">More Info</p>
+      </div>
+    </div>
+    <script src="../scripts/index.js"></script>
+    <script src="../scripts/menu.js"></script>
+    <script src="../scripts/mapSearch.js"></script>
+  </body>
+</html>
